@@ -49,3 +49,33 @@ main p {
   font-size: 1.2rem;
   color: #555;
 }
+/* TITRES */
+h1 {
+  margin-bottom: 30px;
+  color: #1f3c88;
+}
+
+h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* SECTIONS PROJETS */
+section {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 70%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* LIENS */
+a {
+  color: #1f3c88;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
