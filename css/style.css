@@ -103,6 +103,33 @@ button:hover {
 html {
   scroll-behavior: smooth;
 }
+.skill {
+  width: 60%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.bar {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 20px;
+  background-color: #1f3c88;
+  width: 0;
+  border-radius: 20px;
+  transition: width 1s ease-in-out;
+}
+
+/* Niveaux */
+.html { width: 85%; }
+.css { width: 80%; }
+.js { width: 65%; }
+.csharp { width: 70%; }
+
 
 
 
