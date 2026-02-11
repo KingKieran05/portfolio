@@ -20,7 +20,12 @@ body {
 header {
   background-color: #1f3c88;
   padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
+
 
 nav {
   display: flex;
@@ -41,7 +46,7 @@ nav a:hover {
 /* CONTENU PRINCIPAL */
 main {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 main h1 {
@@ -95,5 +100,9 @@ button {
 button:hover {
   background-color: #162d66;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 
