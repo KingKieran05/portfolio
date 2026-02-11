@@ -82,4 +82,18 @@ a {
 a:hover {
   opacity: 0.8;
 }
+button {
+  padding: 10px 20px;
+  background-color: #1f3c88;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #162d66;
+}
+
 
