@@ -1,3 +1,7 @@
+body {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
 /* RESET DE BASE */
 * {
   margin: 0;
