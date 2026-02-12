@@ -130,6 +130,23 @@ html {
 .js { width: 65%; }
 .csharp { width: 70%; }
 
+.logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logos img {
+  width: 80px;
+  transition: transform 0.3s;
+}
+
+.logos img:hover {
+  transform: scale(1.1);
+}
+
+
 
 
 
