@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Kieran Baptiste - BTS SIO SLAM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* ================= PALETTE DARK & BLUE ================= */
+        :root {
+            --bg-color: #000000;       /* Fond Noir Pur */
+            --card-bg: #0a0f1e;        /* Bleu Très Foncé */
+            --accent-main: #1e40af;    /* Bleu Cobalt */
+            --text-main: #ffffff;      /* Écritures Blanches */
+            --text-dim: #d1d5db;       /* Gris clair */
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            position: fixed; width: 100%; padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(12px);
+            display: flex; justify-content: space-between; align-items: center; z-index: 100;
+            border-bottom: 1px solid rgba(30, 64, 175, 0.3);
+        }
+        nav h1 { font-family: 'Share Tech Mono', monospace; color: var(--text-main); font-size: 1.1em; letter-spacing: 2px; }
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85em; transition: 0.3s; text-transform: uppercase; font-weight: 600; position: relative; }
+        nav a:hover { color: var(--text-main); }
+        nav a::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+            background-color: var(--accent-main); transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* ================= SECTIONS ================= */
+        section { padding: 100px 12%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        h2 {
+            font-family: 'Rajdhani', sans-serif; font-size: 2.2em; margin-bottom: 40px;
+            color: var(--text-main); border-left: 4px solid var(--accent-main); padding-left: 15px;
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero { text-align: center; }
+        .profile-img {
+            width: 170px; height: 170px; border-radius: 50%;
+            border: 2px solid var(--accent-main); padding: 5px;
+            object-fit: cover; margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(30, 64, 175, 0.5);
+        }
+        .hero h2 { border: none; font-size: 4em; padding: 0; margin-bottom: 5px; color: var(--text-main); }
+        .typewriter { font-family: 'Share Tech Mono', monospace; color: var(--text-dim); font-size: 1.2em; letter-spacing: 1px; }
+        
+        .btn-group { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
+        .btn-main {
+            padding: 12px 30px; background: var(--accent-main); color: var(--text-main);
+            text-transform: uppercase; font-weight: 700; text-decoration: none;
+            border-radius: 5px; transition: 0.3s; font-size: 0.9em;
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(30, 64, 175, 0.4); }
+        .btn-outline {
+            padding: 12px 30px; background: transparent; color: var(--text-main);
+            border: 1px solid var(--text-main); text-transform: uppercase;
+            font-weight: 700; text-decoration: none; border-radius: 5px; transition: 0.3s;
+        }
+        .btn-outline:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--accent-main); color: var(--accent-main); }
+
+        /* ================= CARDS ================= */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card {
+            background: var(--card-bg); padding: 35px; border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: 0.4s;
+        }
+        .card:hover { transform: translateY(-5px); background: #0c1225; border-color: rgba(30, 64, 175, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        .card h3 { color: var(--text-main); margin-bottom: 15px; font-size: 1.4em; }
+        .card p { color: var(--text-dim); line-height: 1.6; }
+
+        /* ================= CERTIFS LIST ================= */
+        .cert-link {
+            display: inline-block; margin-top: 10px; color: #60a5fa;
+            text-decoration: none; font-weight: 600; font-size: 0.85em;
+        }
+        .cert-link:hover { text-decoration: underline; color: var(--text-main); }
+
+        .timeline-item { border-left: 2px solid rgba(30, 64, 175, 0.3); padding-left: 20px; padding-bottom: 30px; position: relative; }
+        .timeline-item::after {
+            content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px;
+            background: var(--accent-main); border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles-js"></canvas>
+
+    <nav>
+        <h1>KIERAN BAPTISTE</h1>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#veille">Expertise</a></li>
+        </ul>
+    </nav>
+
+    <section id="accueil" class="hero">
+        <img src="photo%20profile.png" alt="Kieran" class="profile-img">
+        <h2>KIERAN</h2>
+        <div class="typewriter" id="typewriter"></div>
+        
+        <div class="btn-group">
+            <a href="https://github.com/KingKieran05" target="_blank" class="btn-main">Mon GitHub</a>
+            <a href="KieranCV.pdf" target="_blank" class="btn-outline">Consulter mon CV</a>
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2>Projets & Réalisations</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Solutions C# / .NET</h3>
+                <p>Conception d'applications desktop robustes en architecture MVC.</p>
+            </div>
+            <div class="card">
+                <h3>Développement Web</h3>
+                <p>Applications dynamiques en PHP et frameworks modernes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <h2>Parcours Professionnel</h2>
+        <div class="timeline-item">
+            <h3 style="color: var(--text-main);">BTS SIO SLAM</h3>
+            <p style="color:var(--text-dim)">2024 - 2026</p>
+            <p style="color:var(--text-dim)">Spécialisation en développement logiciel et gestion de projets agiles.</p>
+        </div>
+        <div class="timeline-item">
+            <h3 style="color: var(--text-main);">Stage de 1ère année</h3>
+            <p style="color:var(--text-dim)">Mars - Avril 2025</p>
+            <p style="color:var(--text-dim)">Immersion technique : maintenance applicative et scripts d'automatisation.</p>
+        </div>
+    </section>
+
+    <section id="veille">
+        <h2>Veille & Certifications</h2>
+        <div class="grid-container">
+           <div class="card">
+    <h3>Veille : DevOps</h3>
+    <p>Étude de l'automatisation, des pipelines CI/CD et de la conteneurisation.</p>
+    <a href="veille-devops-kieran.pptx" target="_blank" class="cert-link">Ouvrir la présentation (PPTX) →</a>
+</div>
+
+           <div class="card">
+    <h3>Certifications</h3>
+    
+    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
+        <a href="certification-pix-BTS.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+            <strong style="display:block; color:var(--text-main); cursor: pointer;">Certification Pix - Niveau BTS</strong>
+            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
+        </a>
+    </div>
+
+    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
+        <a href="certification-pix-lycée.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+            <strong style="display:block; color:var(--text-main); cursor: pointer;">Certification Pix - Lycée</strong>
+            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
+        </a>
+    </div>
+
+    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
+        <a href="Baptiste_Kieran_attestation_Senscyber.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+            <strong style="display:block; color:var(--text-main); cursor: pointer;">ANSSI - Senscyber</strong>
+            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
+        </a>
+    </div>
+
+    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
+        <a href="Baptiste_Kieran_Attestation%20module1_anssi.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+            <strong style="display:block; color:var(--text-main); cursor: pointer;">ANSSI - Module 1 Cyber</strong>
+            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
+        </a>
+    </div>
+
+    <div style="border-left: 2px solid var(--accent-main); padding-left: 15px;">
+        <a href="BAPTISTE.Kieran.mooc_AFP_module1.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+            <strong style="display:block; color:var(--text-main); cursor: pointer;">MOOC AFP - Module 1</strong>
+            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
+        </a>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <script>
+        const text = "Développeur Software & Web | Étudiant BTS SIO SLAM";
+        let index = 0;
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        window.onload = typeWriter;
+
+        const canvas = document.getElementById("particles-js");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particlesArray = [];
+        class Particle {
+            constructor(x, y, dx, dy, size) {
+                this.x = x; this.y = y; this.dx = dx; this.dy = dy; this.size = size;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(30, 64, 175, 0.4)'; ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
+                if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
+                this.x += this.dx; this.y += this.dy;
+                this.draw();
+            }
+        }
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < 60; i++) {
+                let size = Math.random() * 2;
+                particlesArray.push(new Particle(Math.random()*canvas.width, Math.random()*canvas.height, Math.random()*0.4-0.2, Math.random()*0.4-0.2, size));
+            }
+        }
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            particlesArray.forEach(p => p.update());
+        }
+        init(); animate();
+        window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; init(); });
+    </script>
+</body>
+</html>
