@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mission 2 - Application Laravel</title>
+
+<style>
+body{
+    background:#05050A;
+    color:white;
+    font-family:'Outfit', sans-serif;
+    padding:40px;
+}
+
+h1{
+    font-size:2.5rem;
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+h2{
+    margin-top:50px;
+    color:#2bb0ed;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111;
+    padding:15px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+img{
+    width:100%;
+    border-radius:10px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 25px;
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+    border-radius:20px;
+    color:white;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Mission 2 - Application Web (Laravel / MySQL)</h1>
+
+<p>
+Développement d'une application web de gestion des visiteurs avec Laravel,
+incluant une base de données MySQL et une interface dynamique.
+</p>
+
+<!-- INTERFACE -->
+<h2>🖥️ Interface utilisateur</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="login.png">
+<p>Connexion utilisateur</p>
+</div>
+
+<div class="card">
+<img src="gestion-visiteurs.png">
+<p>Gestion des visiteurs</p>
+</div>
+
+<div class="card">
+<img src="ajout-visiteur.png">
+<p>Ajout d’un visiteur</p>
+</div>
+
+<div class="card">
+<img src="etat-visiteurs.png">
+<p>Suivi des états</p>
+</div>
+
+</div>
+
+<!-- BASE DE DONNEES -->
+<h2>🗄️ Base de données</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="bdd-etat.png">
+<p>Table état</p>
+</div>
+
+<div class="card">
+<img src="bdd-gestionnaire.png">
+<p>Table gestionnaire</p>
+</div>
+
+<div class="card">
+<img src="bdd-visiteur.png">
+<p>Table visiteurs</p>
+</div>
+
+</div>
+
+<!-- TERMINAL -->
+<h2>⚙️ Backend / Terminal</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="terminal-serve.png">
+<p>Lancement serveur Laravel</p>
+</div>
+
+<div class="card">
+<img src="terminal-composer.png">
+<p>Gestion dépendances Composer</p>
+</div>
+
+</div>
+
+<!-- GITHUB -->
+<a href="https://github.com/KingKieran05/mission2-GSB-Laravel" class="btn">
+Voir le code sur GitHub
+</a>
+<!-- LIGHTBOX -->
+<div id="lightbox" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+">
+
+<img id="lightbox-img" style="
+max-width:90%;
+max-height:90%;
+border-radius:15px;
+box-shadow:0 0 40px rgba(43,176,237,0.6);
+">
+
+</div>
+
+<script>
+window.onload = function(){
+
+const images = document.querySelectorAll("img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+}
+</script>
+
+</body>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>RepairHub - Interface Client</title>
+
+<style>
+body{
+    background:#05050A;
+    color:white;
+    font-family:Arial;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-text{
+    max-width:900px;
+    margin:0 auto 50px auto;
+    line-height:1.6;
+    color:#ccc;
+}
+
+.section-text h2{
+    color:#2bb0ed;
+    margin-top:30px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:15px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* BOUTON */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+    border-radius:20px;
+    color:white;
+    text-decoration:none;
+}
+
+/* LIGHTBOX */
+#lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Projet RepairHub - Interface Client</h1>
+
+<div class="section-text">
+
+<p>
+L’interface client de RepairHub a été conçue pour offrir une expérience simple,
+claire et efficace permettant au client de suivre l’état de sa réparation en temps réel.
+</p>
+
+<h2>1. Accès à l’interface</h2>
+<p>
+Le client accède à son espace via un lien sécurisé ou un identifiant fourni lors de la prise en charge,
+garantissant la confidentialité des informations.
+</p>
+
+<h2>2. Consultation des informations</h2>
+<p>
+Le client peut visualiser les informations principales de son appareil :
+type, marque, modèle ainsi que le problème signalé.
+</p>
+
+<h2>3. Suivi de la réparation</h2>
+<p>
+Le système affiche l’état d’avancement :
+En attente → En cours → Réparé → Terminé.
+</p>
+
+<h2>4. Validation du devis</h2>
+<p>
+Le client peut consulter et accepter ou refuser un devis directement depuis l’interface.
+</p>
+
+<h2>5. Notification</h2>
+<p>
+Une notification est envoyée lorsque la réparation est terminée,
+permettant au client d’être informé rapidement.
+</p>
+
+<h2>6. Clôture</h2>
+<p>
+Une fois la réparation terminée, le dossier est archivé,
+permettant un suivi historique des interventions.
+</p>
+
+<!-- 🔥 NOUVELLE PARTIE -->
+<h2>📄 Cahier des charges</h2>
+
+<p>
+Dans le cadre de mon stage, j’ai réalisé un cahier des charges complet afin de concevoir
+l’interface client de RepairHub. Ce document décrit précisément le parcours utilisateur
+et les différentes étapes du processus de réparation.
+</p>
+
+<p>
+Le parcours utilisateur se déroule en plusieurs étapes :
+<br>• Choix du type d’appareil (téléphone, tablette, ordinateur)
+<br>• Sélection de la marque
+<br>• Choix du modèle
+<br>• Sélection de la panne avec estimation du prix
+<br>• Génération du devis et de la facture
+</p>
+
+<p>
+Ce cahier des charges m’a permis de structurer le projet et de faciliter
+la communication avec l’ingénieur informatique en charge du développement.
+</p>
+
+<a href="Cahiers de charges kieran dylan 2 (2).pdf" target="_blank" class="btn">
+Voir le cahier des charges
+</a>
+
+</div>
+
+<div class="gallery">
+<img src="client1.jpeg">
+<img src="client2.jpeg">
+<img src="client3.jpeg">
+<img src="client4.jpeg">
+<img src="client5.jpeg">
+<img src="client6.jpeg">
+<img src="client7.jpeg">
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+<img id="lightbox-img">
+</div>
+
+<script>
+window.onload = function(){
+
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+}
+</script>
+
+</body>
+</html>

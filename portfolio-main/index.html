@@ -1,254 +1,841 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="page">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Kieran Baptiste - BTS SIO SLAM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <style>
-        /* ================= PALETTE DARK & BLUE ================= */
-        :root {
-            --bg-color: #000000;       /* Fond Noir Pur */
-            --card-bg: #0a0f1e;        /* Bleu Très Foncé */
-            --accent-main: #1e40af;    /* Bleu Cobalt */
-            --text-main: #ffffff;      /* Écritures Blanches */
-            --text-dim: #d1d5db;       /* Gris clair */
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* ================= NAVIGATION ================= */
-        nav {
-            position: fixed; width: 100%; padding: 15px 50px;
-            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(12px);
-            display: flex; justify-content: space-between; align-items: center; z-index: 100;
-            border-bottom: 1px solid rgba(30, 64, 175, 0.3);
-        }
-        nav h1 { font-family: 'Share Tech Mono', monospace; color: var(--text-main); font-size: 1.1em; letter-spacing: 2px; }
-        nav ul { list-style: none; display: flex; gap: 25px; }
-        nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85em; transition: 0.3s; text-transform: uppercase; font-weight: 600; position: relative; }
-        nav a:hover { color: var(--text-main); }
-        nav a::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
-            background-color: var(--accent-main); transition: width 0.3s;
-        }
-        nav a:hover::after { width: 100%; }
+<title>Kieran Baptiste - Portfolio SLAM</title>
 
-        /* ================= SECTIONS ================= */
-        section { padding: 100px 12%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-        h2 {
-            font-family: 'Rajdhani', sans-serif; font-size: 2.2em; margin-bottom: 40px;
-            color: var(--text-main); border-left: 4px solid var(--accent-main); padding-left: 15px;
-        }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap" rel="stylesheet">
 
-        /* ================= HERO SECTION ================= */
-        .hero { text-align: center; }
-        .profile-img {
-            width: 170px; height: 170px; border-radius: 50%;
-            border: 2px solid var(--accent-main); padding: 5px;
-            object-fit: cover; margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(30, 64, 175, 0.5);
-        }
-        .hero h2 { border: none; font-size: 4em; padding: 0; margin-bottom: 5px; color: var(--text-main); }
-        .typewriter { font-family: 'Share Tech Mono', monospace; color: var(--text-dim); font-size: 1.2em; letter-spacing: 1px; }
-        
-        .btn-group { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
-        .btn-main {
-            padding: 12px 30px; background: var(--accent-main); color: var(--text-main);
-            text-transform: uppercase; font-weight: 700; text-decoration: none;
-            border-radius: 5px; transition: 0.3s; font-size: 0.9em;
-        }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(30, 64, 175, 0.4); }
-        .btn-outline {
-            padding: 12px 30px; background: transparent; color: var(--text-main);
-            border: 1px solid var(--text-main); text-transform: uppercase;
-            font-weight: 700; text-decoration: none; border-radius: 5px; transition: 0.3s;
-        }
-        .btn-outline:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--accent-main); color: var(--accent-main); }
+<style>
+:root{
+    --bg:#05050A;
+    --card:#111;
+    --blue:#2bb0ed;
+    --purple:#8b5cf6;
+    --text:#fff;
+    --gray:#aaa;
+}
 
-        /* ================= CARDS ================= */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card {
-            background: var(--card-bg); padding: 35px; border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: 0.4s;
-        }
-        .card:hover { transform: translateY(-5px); background: #0c1225; border-color: rgba(30, 64, 175, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
-        .card h3 { color: var(--text-main); margin-bottom: 15px; font-size: 1.4em; }
-        .card p { color: var(--text-dim); line-height: 1.6; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    background:var(--bg);
+    font-family:'Outfit';
+    color:var(--text);
+}
 
-        /* ================= CERTIFS LIST ================= */
-        .cert-link {
-            display: inline-block; margin-top: 10px; color: #60a5fa;
-            text-decoration: none; font-weight: 600; font-size: 0.85em;
-        }
-        .cert-link:hover { text-decoration: underline; color: var(--text-main); }
+/* GLOW */
+body::before, body::after{
+    content:'';
+    position:fixed;
+    width:500px;height:500px;
+    filter:blur(150px);
+    z-index:-1;
+}
+body::before{background:#2bb0ed; top:-100px; left:-100px;}
+body::after{background:#8b5cf6; bottom:-100px; right:-100px;}
 
-        .timeline-item { border-left: 2px solid rgba(30, 64, 175, 0.3); padding-left: 20px; padding-bottom: 30px; position: relative; }
-        .timeline-item::after {
-            content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px;
-            background: var(--accent-main); border-radius: 50%;
-        }
-    </style>
+.container{max-width:1100px;margin:auto;padding:120px 20px;}
+
+/* HERO */
+.hero{text-align:center;}
+.avatar{
+    width:170px;
+    border-radius:50%;
+    border:3px solid var(--blue);
+    box-shadow:0 0 40px var(--blue);
+}
+h1{font-size:3.5rem;}
+.highlight{
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--gray);margin:20px 0;}
+
+/* BUTTON */
+.btn{
+    padding:12px 25px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+    color:white;
+    text-decoration:none;
+    margin:5px;
+    display:inline-block;
+    transition:0.3s;
+}
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(43,176,237,0.4);
+}
+
+/* CARD */
+.card{
+    background:rgba(20,20,30,0.6);
+    padding:25px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+.card:hover{
+    transform:translateY(-10px);
+    border-color:var(--blue);
+    box-shadow:0 15px 40px rgba(43,176,237,0.3);
+}
+
+/* TITRE */
+h2{
+    margin:80px 0 40px;
+    font-size:2.5rem;
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* SCROLL COMPETENCES */
+.skills-container{
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.scroll-container{
+    height:500px;
+    overflow:hidden;
+    flex:1;
+}
+
+.scroll-content{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    animation:scrollUp 18s linear infinite;
+}
+
+@keyframes scrollUp{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-50%);}
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+    padding:50px;
+    background:rgba(139,92,246,0.1);
+    border-radius:20px;
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(20,20,30,0.6);
+    padding:10px 25px;
+    border-radius:40px;
+    backdrop-filter:blur(10px);
+    display:flex;
+    gap:20px;
+    align-items:center;
+    z-index:1000;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    padding:8px 15px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+}
+
+.lang-fixed{
+    position:fixed; /* 🔥 LE PLUS IMPORTANT */
+    top:25px;
+    right:25px;
+    display:flex;
+    gap:10px;
+    z-index:9999;
+}
+
+.lang-fixed button{
+    background:rgba(20,20,30,0.8);
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+    padding:8px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.lang-fixed button:hover{
+    background:linear-gradient(45deg,#2bb0ed,#8b5cf6);
+}
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.timeline-card{
+    position:relative;
+    background:linear-gradient(135deg,#0f172a,#020617);
+    padding:30px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.timeline-badge{
+    position:absolute;
+    top:-15px;
+    left:20px;
+    background:linear-gradient(45deg,#8b5cf6,#2bb0ed);
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+.timeline-title{
+    font-size:1.5rem;
+    margin-top:10px;
+}
+
+.timeline-company{
+    color:#2bb0ed;
+    margin:10px 0;
+    font-weight:500;
+}
+
+.timeline-text{
+    color:#aaa;
+    line-height:1.6;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+section{
+    scroll-margin-top: 120px;
+}
+.news-container{
+    display:grid;
+    gap:20px;
+    margin-top:20px;
+}
+
+.news-card{
+    background:linear-gradient(135deg,#0f172a,#020617);
+    padding:20px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+    border-color:#2bb0ed;
+    box-shadow:0 10px 25px rgba(43,176,237,0.3);
+}
+
+.news-date{
+    background:#2bb0ed;
+    padding:5px 10px;
+    border-radius:10px;
+    font-size:0.8rem;
+    display:inline-block;
+    margin-bottom:10px;
+}
+.veille-big{
+    font-size:2.8rem;
+    text-align:center;
+    font-weight:900;
+    margin:30px 0;
+
+    background:linear-gradient(90deg,#2bb0ed,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:0 0 20px rgba(43,176,237,0.4);
+}
+.veille-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.veille-box{
+    background:linear-gradient(135deg,#0f172a,#020617);
+    padding:20px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.veille-box:hover{
+    transform:translateY(-5px);
+    border-color:#2bb0ed;
+    box-shadow:0 10px 25px rgba(43,176,237,0.3);
+}
+
+.veille-box h3{
+    margin-bottom:10px;
+    color:#2bb0ed;
+}
+@media(max-width:768px){
+    .veille-grid{
+        grid-template-columns:1fr;
+    }
+}
+.double-block{
+    display:flex;
+    gap:20px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.info-card{
+    flex:1;
+    min-width:250px;
+    background:linear-gradient(135deg,#0f172a,#020617);
+    padding:25px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    border-color:#2bb0ed;
+    box-shadow:0 10px 25px rgba(43,176,237,0.3);
+}
+
+.info-card h4{
+    margin-bottom:15px;
+    color:#2bb0ed;
+}
+
+.info-card ul{
+    padding-left:20px;
+    color:#aaa;
+}
+.hero-flex{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    text-align:left;
+}
+
+.hero-text{
+    flex:1;
+}
+
+/* PHOTO PARFAITEMENT RONDE */
+.avatar{
+    width:180px;
+    height:180px; /* 🔥 IMPORTANT pour éviter ovale */
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid var(--blue);
+    box-shadow:0 0 40px var(--blue);
+}
+
+/* RESPONSIVE (téléphone) */
+@media(max-width:768px){
+    .hero-flex{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+</style>
 </head>
+
 <body>
-
-    <canvas id="particles-js"></canvas>
-
-    <nav>
-        <h1>KIERAN BAPTISTE</h1>
-        <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#parcours">Parcours</a></li>
-            <li><a href="#veille">Expertise</a></li>
-        </ul>
-    </nav>
-
-    <section id="accueil" class="hero">
-        <img src="photo%20profile.png" alt="Kieran" class="profile-img">
-        <h2>KIERAN</h2>
-        <div class="typewriter" id="typewriter"></div>
-        
-        <div class="btn-group">
-            <a href="https://github.com/KingKieran05" target="_blank" class="btn-main">Mon GitHub</a>
-            <a href="KieranCV.pdf" target="_blank" class="btn-outline">Consulter mon CV</a>
-        </div>
-    </section>
-
-    <section id="projets">
-        <h2>Projets & Réalisations</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>Solutions C# / .NET</h3>
-                <p>Conception d'applications desktop robustes en architecture MVC.</p>
-            </div>
-            <div class="card">
-                <h3>Développement Web</h3>
-                <p>Applications dynamiques en PHP et frameworks modernes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="parcours">
-        <h2>Parcours Professionnel</h2>
-        <div class="timeline-item">
-            <h3 style="color: var(--text-main);">BTS SIO SLAM</h3>
-            <p style="color:var(--text-dim)">2024 - 2026</p>
-            <p style="color:var(--text-dim)">Spécialisation en développement logiciel et gestion de projets agiles.</p>
-        </div>
-        <div class="timeline-item">
-            <h3 style="color: var(--text-main);">Stage de 1ère année</h3>
-            <p style="color:var(--text-dim)">Mars - Avril 2025</p>
-            <p style="color:var(--text-dim)">Immersion technique : maintenance applicative et scripts d'automatisation.</p>
-        </div>
-    </section>
-
-    <section id="veille">
-        <h2>Veille & Certifications</h2>
-        <div class="grid-container">
-           <div class="card">
-    <h3>Veille : DevOps</h3>
-    <p>Étude de l'automatisation, des pipelines CI/CD et de la conteneurisation.</p>
-    <a href="veille-devops-kieran.pptx" target="_blank" class="cert-link">Ouvrir la présentation (PPTX) →</a>
+    <div class="lang-fixed">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+</div>
+    <!-- NAVBAR -->
+<div class="navbar">
+<a href="#Accueil" data-fr="🏠 Accueil" data-en="🏠 Home">🏠 Accueil</a>
+<a href="#Compétences" data-fr="💻 Compétences" data-en="💻 Skills">💻 Compétences</a>
+<a href="#Parcours" data-fr="📁 Parcours" data-en="📁 Experience">📁 Parcours</a>
+<a href="#Projets" data-fr="🚀 Projets" data-en="🚀 Projects">🚀 Projets</a>
+<a href="#Certifications" data-fr="📜 Certifications" data-en="📜 Certifications">📜 Certifications</a>
+<a href="#Veille" data-fr="🔍 Veille" data-en="🔍 Technology Watch">🔍 Veille</a>
 </div>
 
-           <div class="card">
-    <h3>Certifications</h3>
-    
-    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
-        <a href="certification-pix-BTS.pdf" target="_blank" style="text-decoration: none; color: inherit;">
-            <strong style="display:block; color:var(--text-main); cursor: pointer;">Certification Pix - Niveau BTS</strong>
-            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
-        </a>
+<div class="container">
+
+<!-- HERO -->
+<section id="Accueil" class="hero reveal hero-flex">
+
+    <img src="photo profile.png" class="avatar">
+
+    <div class="hero-text">
+        <h1 data-fr="Kieran Baptiste" data-en="Kieran Baptiste">
+     Kieran Baptiste
+</h1>
+
+<p data-fr="Étudiant BTS SIO SLAM" data-en="BTS SIO SLAM Student">
+    Étudiant BTS SIO SLAM
+</p>
+
+<p data-fr="Développeur Web & Logiciel" data-en="Web & Software Developer">
+    Développeur Web & Logiciel
+</p>
+        <a href="KieranCV.pdf" class="btn"
+data-fr="Voir CV"
+data-en="View CV">Voir CV</a>
     </div>
 
-    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
-        <a href="certification-pix-lycée.pdf" target="_blank" style="text-decoration: none; color: inherit;">
-            <strong style="display:block; color:var(--text-main); cursor: pointer;">Certification Pix - Lycée</strong>
-            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
-        </a>
-    </div>
+</section>
 
-    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
-        <a href="Baptiste_Kieran_attestation_Senscyber.pdf" target="_blank" style="text-decoration: none; color: inherit;">
-            <strong style="display:block; color:var(--text-main); cursor: pointer;">ANSSI - Senscyber</strong>
-            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
-        </a>
-    </div>
+<!-- COMPETENCES -->
+<section id="Compétences" class="reveal skills-container">
 
-    <div style="margin-bottom: 20px; border-left: 2px solid var(--accent-main); padding-left: 15px;">
-        <a href="Baptiste_Kieran_Attestation%20module1_anssi.pdf" target="_blank" style="text-decoration: none; color: inherit;">
-            <strong style="display:block; color:var(--text-main); cursor: pointer;">ANSSI - Module 1 Cyber</strong>
-            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
-        </a>
-    </div>
-
-    <div style="border-left: 2px solid var(--accent-main); padding-left: 15px;">
-        <a href="BAPTISTE.Kieran.mooc_AFP_module1.pdf" target="_blank" style="text-decoration: none; color: inherit;">
-            <strong style="display:block; color:var(--text-main); cursor: pointer;">MOOC AFP - Module 1</strong>
-            <span class="cert-link" style="font-size: 0.8em;">[ LIRE LE DOCUMENT ]</span>
-        </a>
-    </div>
+<div style="flex:1;">
+<h2 data-fr="Mes Compétences et Outils" data-en="My Skills and Tools">Mes Compétences et Outils</h2>
+<p 
+data-fr="Ces outils sont au cœur de ma productivité et m'aident à atteindre de nouveaux sommets dans mes projets. 
+Je les utilise tous les jours pour être plus rapide, 
+plus efficace et plus créatif."
+data-en="These tools are central to my productivity and help me reach new heights in my projects.
+I use them every day to be faster, more efficient, and more creative.">
+Ces outils sont au cœur de ma productivité et m'aident à atteindre de nouveaux sommets dans mes projets. 
+Je les utilise tous les jours pour être plus rapide, 
+plus efficace et plus créatif.
+</p>
 </div>
-        </div>
-    </section>
 
-    <script>
-        const text = "Développeur Software & Web | Étudiant BTS SIO SLAM";
-        let index = 0;
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        window.onload = typeWriter;
+<div class="scroll-container">
+<div class="scroll-content">
 
-        const canvas = document.getElementById("particles-js");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        let particlesArray = [];
-        class Particle {
-            constructor(x, y, dx, dy, size) {
-                this.x = x; this.y = y; this.dx = dx; this.dy = dy; this.size = size;
-            }
-            draw() {
-                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(30, 64, 175, 0.4)'; ctx.fill();
-            }
-            update() {
-                if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
-                if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
-                this.x += this.dx; this.y += this.dy;
-                this.draw();
-            }
-        }
-        function init() {
-            particlesArray = [];
-            for (let i = 0; i < 60; i++) {
-                let size = Math.random() * 2;
-                particlesArray.push(new Particle(Math.random()*canvas.width, Math.random()*canvas.height, Math.random()*0.4-0.2, Math.random()*0.4-0.2, size));
-            }
-        }
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            particlesArray.forEach(p => p.update());
-        }
-        init(); animate();
-        window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; init(); });
-    </script>
+<div class="card"><i class="fa-brands fa-html5" style="color:#e34c26;"></i> HTML</div>
+<div class="card"><i class="fa-brands fa-css3-alt" style="color:#264de4;"></i> CSS</div>
+<div class="card"><i class="fa-brands fa-js" style="color:#f0db4f;"></i> JavaScript</div>
+<div class="card"><i class="fa-brands fa-php" style="color:#777bb3;"></i> PHP</div>
+<div class="card"><i class="fa-solid fa-database" style="color:#4db33d;"></i> SQL</div>
+<div class="card"><i class="fa-solid fa-code" style="color:#9cdcfe;"></i> C#</div>
+<div class="card"><i class="fa-brands fa-python" style="color:#3776ab;"></i> Python</div>
+
+<div class="card"><i class="fa-brands fa-github"></i> GitHub</div>
+<div class="card"><i class="fa-brands fa-linux" style="color:#fcc624;"></i> Linux</div>
+<div class="card"><i class="fa-brands fa-windows" style="color:#00a4ef;"></i> Windows</div>
+<div class="card"><i class="fa-solid fa-code"></i> VS Code</div>
+<div class="card"><i class="fa-solid fa-laptop-code"></i> Visual Studio</div>
+
+<!-- duplication pour scroll -->
+<div class="card"><i class="fa-brands fa-html5"></i> HTML</div>
+<div class="card"><i class="fa-brands fa-js"></i> JavaScript</div>
+
+</div>
+</div>
+
+</section>
+<!-- PARCOURS -->
+<section id="Parcours" class="reveal">
+<h2 data-fr="Mon Parcours et Expériences" data-en="My Journey & Experience">
+Mon Parcours et Expériences
+</h2>
+<div class="timeline">
+
+<div class="timeline-card">
+    <div class="timeline-badge">(2020 - 2023)</div>
+
+    <h3 class="timeline-title">Bac STI2D</h3>
+
+    <div class="timeline-company">Lycée Robert Weinum</div>
+
+    <p class="timeline-text" 
+    data-fr="Spécialité systèmes numériques" data-en="Specialization: Digital Systems">
+    Spécialité systèmes numériques
+    </p>
+</div>
+
+<div class="timeline-card">
+    <div class="timeline-badge">2023 - 2024</div>
+
+    <h3 class="timeline-title">BUT GEII</h3>
+
+    <div class="timeline-company">Rouen - Mont Saint-Aignan</div>
+
+    <p class="timeline-text"
+    data-fr="Formation en génie électrique et informatique industrielle."
+    data-en="Formation in electrical engineering and industrial computing.">
+    Formation en génie électrique et informatique industrielle.
+    Cette année m’a permis de développer des bases en informatique et en logique technique,
+    et m’a orienté vers le développement logiciel, ce qui m’a conduit à poursuivre en BTS SIO SLAM.
+    </p>
+</div>
+
+<div class="timeline-card">
+    <div class="timeline-badge">2024 - 2026</div>
+
+    <h3 class="timeline-title">BTS SIO SLAM</h3>
+
+    <div class="timeline-company">Lycée Voillaume</div>
+
+    <p class="timeline-text"
+    data-fr="Formation en développement web, bases de données, algorithmique et conception logicielle."
+    data-en="Formation in web development, databases, algorithms, and software design.">
+    Formation en développement web, bases de données, algorithmique et conception logicielle.
+    </p>
+</div>
+
+<div class="timeline-card">
+    <div class="timeline-badge">2025 (1 mois)</div>
+
+    <h3 class="timeline-title">Stage : Support Informatique</h3>
+
+    <div class="timeline-company">INFOMAC</div>
+
+    <p class="timeline-text"
+    data-fr="Maintenance informatique, assistance utilisateurs et diagnostic matériel."
+    data-en="Computer maintenance, user assistance and hardware diagnostics.">
+    Maintenance informatique, assistance utilisateurs et diagnostic matériel.
+    </p>
+</div>
+
+<div class="timeline-card">
+    <div class="timeline-badge">2026 (2 mois)</div>
+
+    <h3 class="timeline-title">Stage : Développement Web</h3>
+
+    <div class="timeline-company">AMI Réparation</div>
+
+    <p class="timeline-text"
+    data-fr="Développement d’une application de gestion SAV (RepairHub), 
+    rédaction d’un cahier des charges et participation à la conception 
+    de l’interface client."
+    data-en="Development of a SAV management application (RepairHub), 
+    writing of a requirements specification and participation in the design 
+    of the client interface.">
+    Développement d’une application de gestion SAV (RepairHub), 
+    rédaction d’un cahier des charges et participation à la conception 
+    de l’interface client.
+    </p>
+</div>
+
+
+</div>
+</section>
+<!-- PROJETS -->
+<section id="Projets" class="reveal">
+<h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
+
+<div style="display:grid; gap:20px;">
+<div class="card">
+<h3 data-fr="RepairHub" data-en="RepairHub">RepairHub Stage 2ème Année</h3>
+
+<p 
+data-fr="Gestion SAV en PHP/MySQL" 
+data-en="After-sales service management system built with PHP/MySQL">
+Gestion SAV en PHP/MySQL
+</p>
+
+<a href="repairhub.html" class="btn"
+data-fr="Voir le projet"
+data-en="View project">
+Voir le projet
+</a>
+
+<a href="http://repairhub.oggninc.com:91/" class="btn"
+data-fr="Admin"
+data-en="Admin panel">
+Admin
+</a>
+</div>
+
+<div class="card">
+<h3 data-fr="Mission 2 - Application Laravel" data-en="Mission 2 - Laravel Application">Mission 2 - Application Laravel</h3>
+
+<p
+    data-fr="Application web de gestion des visiteurs développée avec Laravel,
+    incluant base de données MySQL et interface dynamique."
+    data-en="Web application for visitor management developed with Laravel,
+    including MySQL database and dynamic interface.">
+    Application web de gestion des visiteurs développée avec Laravel,
+    incluant base de données MySQL et interface dynamique.
+</p>
+
+<div class="tags">
+<span class="tag">Laravel</span>
+<span class="tag">PHP</span>
+<span class="tag">MySQL</span>
+<span class="tag">MVC</span>
+</div>
+
+<a href="mission2.html" class="btn">Voir le projet</a>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section id="Certifications" class="reveal">
+<h2 data-fr="Mes Certifications" data-en="My Certifications">Mes Certifications</h2>
+
+<div style="display:grid; gap:20px;">
+<div class="card">
+<h3>ANSSI - SecNumAcadémie</h3>
+<a href="Baptiste_Kieran_attestation_Senscyber.pdf" class="btn">Voir PDF</a>
+</div>
+
+<div class="card">
+<h3>Module Cybersécurité</h3>
+<a href="Baptiste_Kieran_Attestation module1_anssi.pdf" class="btn">Voir PDF</a>
+</div>
+
+<div class="card">
+<h3>PIX BTS</h3>
+<a href="certification-pix-BTS.pdf" class="btn">Voir PDF</a>
+</div>
+
+<div class="card">
+<h3>PIX Lycée</h3>
+<a href="certification-pix-lycée.pdf" class="btn">Voir PDF</a>
+</div>
+
+<div class="card">
+<h3>MOOC AFP</h3>
+<a href="BAPTISTE.Kieran.mooc_AFP_module1.pdf" class="btn">Voir PDF</a>
+</div>
+
+</div>
+</section>
+
+<!-- VEILLE -->
+<section id="Veille" class="reveal">
+<h2 data-fr="Ma Veille Technologique" data-en="My Technology Watch">
+Ma Veille Technologique
+</h2>
+
+<div class="card">
+
+<h2 class="veille-big">DEVOPS & DEVSECOPS</h2>
+
+<h3>🎯 Sujet de ma veille</h3>
+<p>
+J’ai choisi de travailler sur : <strong>DevOps & DevSecOps</strong>.
+Ce sujet est important car il combine développement, automatisation et sécurité.
+</p>
+
+<h3>🛠️ Outils & Apprentissage</h3>
+
+<div class="double-block">
+
+<div class="info-card">
+    <h4>🛠️ Outils utilisés</h4>
+    <ul>
+        <li>Feedly (flux RSS)</li>
+        <li>Google Alerts</li>
+        <li>Sites spécialisés (OpenAI, GitHub, blogs tech)</li>
+    </ul>
+</div>
+
+<div class="info-card">
+    <h4>📊 Ce que j’ai appris</h4>
+    <ul>
+        <li>L’importance du CI/CD</li>
+        <li>L’intégration de l’IA dans le DevOps</li>
+        <li>L’évolution vers le DevSecOps</li>
+    </ul>
+</div>
+
+</div>
+
+<h3>📰 Actualités récentes</h3>
+
+<div class="news-container">
+
+<div class="news-card">
+    <span class="news-date">2026</span>
+    <h4>IA dans le DevOps</h4>
+    <p>
+    L’intelligence artificielle est intégrée dans les pipelines CI/CD
+    pour automatiser les tests et améliorer les performances.
+    </p>
+</div>
+
+<div class="news-card">
+    <span class="news-date">2025</span>
+    <h4>Augmentation des attaques supply chain</h4>
+    <p>
+    Les entreprises renforcent la sécurité des dépendances
+    pour éviter les attaques sur la chaîne logicielle.
+    </p>
+</div>
+
+<div class="news-card">
+    <span class="news-date">2024</span>
+    <h4>Explosion du DevSecOps</h4>
+    <p>
+    La sécurité est désormais intégrée directement
+    dans le cycle de développement.
+    </p>
+</div>
+
+  <button onclick="openPDF()" class="btn" style="margin-top:30px;">
+📄 Voir ma veille complète
+</button>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="Contact" class="reveal">
+<h2>Contact</h2>
+
+<div class="contact">
+<p>Email : kieranbaptiste@gmail.com</p>
+<p>Téléphone : +33 7 44 78 29 55</p>
+
+<a href="mailto:kieranbaptiste@gmail.com" class="btn">Envoyer un message</a>
+<a href="https://github.com/KingKieran05" class="btn">GitHub</a>
+</div>
+
+</section>
+
+</div>
+
+<script>
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add("active")
+}
+})
+})
+</script>
+<script>
+
+// sauvegarde texte original
+document.querySelectorAll("h1, h2, h3, p, a, span").forEach(el=>{
+    el.setAttribute("data-original", el.textContent.trim());
+});
+function setLang(lang){
+    document.querySelectorAll("[data-fr], [data-en]").forEach(el=>{
+        const original = el.getAttribute("data-original");
+        const fr = el.getAttribute("data-fr");
+        const en = el.getAttribute("data-en");
+
+        if(lang === "fr" && fr) el.textContent = fr;
+        else if(lang === "en" && en) el.textContent = en;
+        else el.textContent = original; // fallback
+    });
+}
+</script>
+<div id="pdfModal" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+">
+
+<div id="pdfContainer" style="
+width:90%;
+height:90%;
+background:#000;
+border-radius:20px;
+position:relative;
+overflow:hidden;
+">
+
+<!-- ❌ FERMER -->
+<div onclick="closePDF()" style="
+position:absolute;
+top:15px;
+right:15px;
+background:red;
+color:white;
+width:45px;
+height:45px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+font-size:20px;
+z-index:20;
+">
+✖
+</div>
+
+<!-- 🔵 FULLSCREEN -->
+<div onclick="fullscreenPDF()" style="
+position:absolute;
+top:15px;
+right:70px;
+background:#2bb0ed;
+color:white;
+width:45px;
+height:45px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+font-size:18px;
+z-index:20;
+">
+⛶
+</div>
+
+<!-- PDF -->
+<iframe src="veille-devops-kieran.pdf" style="
+width:100%;
+height:100%;
+border:none;
+"></iframe>
+
+</div>
+</div>
+</script>
+<script>
+function openPDF(){
+    document.getElementById("pdfModal").style.display = "flex";
+}
+
+function closePDF(){
+    document.getElementById("pdfModal").style.display = "none";
+}
+
+function fullscreenPDF(){
+    const elem = document.getElementById("pdfContainer");
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+    }
+}
+</script>
+
 </body>
 </html>
