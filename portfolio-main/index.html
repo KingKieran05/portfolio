@@ -367,6 +367,116 @@ section{
     }
 }
 
+.project {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.project h2 {
+  color: #38bdf8;
+}
+
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.project-images img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.project-images img:hover {
+  transform: scale(1.05);
+}
+
+.project-links {
+  margin-top: 15px;
+}
+
+.project-links a {
+  margin-right: 15px;
+  color: white;
+  background: #2563eb;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.project-card {
+    background: linear-gradient(135deg, #0b0f14, #1b3a5c, #4c1d95);
+    box-shadow: 0 0 20px rgba(43,176,237,0.2);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.project-card {
+    background: linear-gradient(135deg, #0b0f14, #1b3a5c, #4c1d95);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px rgba(43,176,237,0.15);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+.timeline-card {
+    background: linear-gradient(135deg, #0b0f14, #1b3a5c, #4c1d95);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+/* 🔥 HOVER GLOW */
+.timeline-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(43,176,237,0.4),
+                0 0 50px rgba(124,58,237,0.3);
+}
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+/* TOUTES les cartes */
+.project-card {
+    width: 300px;
+    min-height: 180px; /* même hauteur */
+    
+    background: linear-gradient(90deg, #0f1620, #2a1b5c);
+    border-radius: 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(90deg, #0f1620, #2a1b5c);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
 </style>
 </head>
 
@@ -417,14 +527,14 @@ data-en="View CV">Voir CV</a>
 <div style="flex:1;">
 <h2 data-fr="Mes Compétences et Outils" data-en="My Skills and Tools">Mes Compétences et Outils</h2>
 <p 
-data-fr="Ces outils sont au cœur de ma productivité et m'aident à atteindre de nouveaux sommets dans mes projets. 
-Je les utilise tous les jours pour être plus rapide, 
-plus efficace et plus créatif."
+data-fr="Ces outils sont essentiels à ma productivité et me permettent d'atteindre de nouveaux sommets dans mes projets.
+Je les utilise quotidiennement car c'est plus rapide, 
+plus efficace et plus inventif."
 data-en="These tools are central to my productivity and help me reach new heights in my projects.
-I use them every day to be faster, more efficient, and more creative.">
-Ces outils sont au cœur de ma productivité et m'aident à atteindre de nouveaux sommets dans mes projets. 
-Je les utilise tous les jours pour être plus rapide, 
-plus efficace et plus créatif.
+I use them every day because it's faster, more efficient, and more inventive.">
+Ces outils sont essentiels à ma productivité et me permettent d'atteindre de nouveaux sommets dans mes projets.
+Je les utilise quotidiennement car c'est plus rapide, 
+plus efficace et plus inventif.
 </p>
 </div>
 
@@ -506,7 +616,11 @@ Mon Parcours et Expériences
 <div class="timeline-card">
     <div class="timeline-badge">2025 (1 mois)</div>
 
-    <h3 class="timeline-title">Stage : Support Informatique</h3>
+    <h3 class="timeline-title" 
+    data-fr="Stage : Support Informatique" 
+    data-en="Internship : IT Support">
+    Stage : Support Informatique
+    </h3>
 
     <div class="timeline-company">INFOMAC</div>
 
@@ -520,7 +634,11 @@ Mon Parcours et Expériences
 <div class="timeline-card">
     <div class="timeline-badge">2026 (2 mois)</div>
 
-    <h3 class="timeline-title">Stage : Développement Web</h3>
+    <h3 class="timeline-title" 
+    data-fr="Stage : Développement Web" 
+    data-en="Internship : Web Development">
+    Stage : Développement Web
+    </h3>
 
     <div class="timeline-company">AMI Réparation</div>
 
@@ -544,51 +662,124 @@ Mon Parcours et Expériences
 <section id="Projets" class="reveal">
 <h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
 
-<div style="display:grid; gap:20px;">
-<div class="card">
-<h3 data-fr="RepairHub" data-en="RepairHub">RepairHub Stage 2ème Année</h3>
+<div class="projects-container">
 
-<p 
-data-fr="Gestion SAV en PHP/MySQL" 
-data-en="After-sales service management system built with PHP/MySQL">
-Gestion SAV en PHP/MySQL
-</p>
+    <!-- RepairHub -->
+    <div class="card">
+        <h3 data-fr="RepairHub Stage 2ème Année" data-en="RepairHub Internship Year 2">
+            RepairHub Stage 2ème Année
+        </h3>
 
-<a href="repairhub.html" class="btn"
-data-fr="Voir le projet"
-data-en="View project">
-Voir le projet
-</a>
+        <p 
+        data-fr="Gestion SAV en PHP/MySQL" 
+        data-en="After-sales service management system built with PHP/MySQL">
+        Gestion SAV en PHP/MySQL
+        </p>
 
-<a href="http://repairhub.oggninc.com:91/" class="btn"
-data-fr="Admin"
-data-en="Admin panel">
-Admin
-</a>
+        <a href="repairhub.html" class="btn"
+        data-fr="Voir le projet"
+        data-en="View project">
+        Voir le projet
+        </a>
+
+        <a href="http://repairhub.oggninc.com:91/" class="btn"
+        data-fr="Admin"
+        data-en="Admin panel">
+        Admin
+        </a>
+    </div>
+
+    <!-- Mission 2 -->
+    <div class="card">
+        <h3 data-fr="Mission 2 - Application Laravel" data-en="Mission 2 - Laravel Application">
+            Mission 2 - Application Laravel
+        </h3>
+
+        <p
+        data-fr="Application web de gestion des visiteurs développée avec Laravel, incluant base de données MySQL et interface dynamique."
+        data-en="Web application for visitor management developed with Laravel, including MySQL database and dynamic interface.">
+        Application web de gestion des visiteurs développée avec Laravel.
+        </p>
+
+        <div class="tags">
+            <span class="tag">Laravel</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MVC</span>
+        </div>
+
+        <a href="mission2.html" class="btn"
+        data-fr="Voir le projet"
+        data-en="View project">
+        Voir le projet
+        </a>
+    </div>
+
+    <!-- Mission 3 -->
+    <div class="card">
+        <h3 data-fr="Mission 3 - Application Desktop" data-en="Mission 3 - Desktop Application">
+            Mission 3 - Application Desktop
+        </h3>
+
+        <p 
+        data-fr="Application de gestion des médecins développée en C# WinForms avec Entity Framework et export XML."
+        data-en="Doctor management application developed in C# WinForms with Entity Framework and XML export.">
+        Application de gestion des médecins en C# WinForms avec export XML.
+        </p>
+
+        <a href="mission3.html" class="btn"
+        data-fr="Voir le projet"
+        data-en="View project">
+        Voir le projet
+        </a>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="card">
+        <h3 data-fr="Chatbot IT – INFOMAC" data-en="IT Chatbot – INFOMAC">
+            Chatbot IT – INFOMAC
+        </h3>
+
+        <p 
+        data-fr="Développement d’un chatbot permettant de diagnostiquer des pannes informatiques."
+        data-en="Development of a chatbot capable of diagnosing IT issues.">
+        Développement d’un chatbot permettant de diagnostiquer des pannes informatiques.
+        </p>
+
+        <a href="chatbot.html" class="btn"
+        data-fr="Voir le projet"
+        data-en="View project">
+        Voir le projet
+        </a>
+    </div>
+
+    <!-- Pokedex -->
+    <div class="card">
+        <h3 data-fr="Pokedex" data-en="Pokedex">
+            Pokedex
+        </h3>
+
+        <p 
+        data-fr="Application web PHP/MySQL avec génération de Pokémon."
+        data-en="PHP/MySQL web application with Pokémon generation.">
+        Application web PHP/MySQL avec génération de Pokémon.
+        </p>
+
+        <a href="pokedex.html" class="btn"
+        data-fr="Voir le projet"
+        data-en="View project">
+        Voir le projet
+        </a>
+
+        <a href="https://github.com/KingKieran05/pokedex-laragon" class="btn"
+        data-fr="Code"
+        data-en="Code">
+        Code
+        </a>
+    </div>
+
 </div>
-
-<div class="card">
-<h3 data-fr="Mission 2 - Application Laravel" data-en="Mission 2 - Laravel Application">Mission 2 - Application Laravel</h3>
-
-<p
-    data-fr="Application web de gestion des visiteurs développée avec Laravel,
-    incluant base de données MySQL et interface dynamique."
-    data-en="Web application for visitor management developed with Laravel,
-    including MySQL database and dynamic interface.">
-    Application web de gestion des visiteurs développée avec Laravel,
-    incluant base de données MySQL et interface dynamique.
-</p>
-
-<div class="tags">
-<span class="tag">Laravel</span>
-<span class="tag">PHP</span>
-<span class="tag">MySQL</span>
-<span class="tag">MVC</span>
-</div>
-
-<a href="mission2.html" class="btn">Voir le projet</a>
-</div>
-
+</section>
 <!-- CERTIFICATIONS -->
 <section id="Certifications" class="reveal">
 <h2 data-fr="Mes Certifications" data-en="My Certifications">Mes Certifications</h2>

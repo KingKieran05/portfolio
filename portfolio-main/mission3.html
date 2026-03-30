@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mission 3 - Application Desktop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Rajdhani', sans-serif;
+    background: radial-gradient(circle at top, #0a0f1e, #000000);
+    color: white;
+    padding: 40px;
+}
+
+.section-title {
+    font-size: 40px;
+    background: linear-gradient(90deg, #2bb0ed, #6c8cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+    color: #c9d1d9;
+    margin-bottom: 30px;
+}
+
+.sub-title {
+    color: #2bb0ed;
+    margin: 30px 0 15px;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.project-card {
+    background: #0f1620;
+    border-radius: 20px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 class="section-title">
+    Mission 3 - Application Desktop (C# / WinForms)
+</h1>
+
+<p class="section-desc">
+    Application permettant la gestion des médecins et des rapports avec Entity Framework et export XML.
+</p>
+
+<h2 class="sub-title">Base de données</h2>
+
+<div class="project-grid">
+    <div class="project-card">
+        <img src="m3-bdd.png" onclick="openModal(this.src)">
+        <p>Modèle de données</p>
+    </div>
+</div>
+
+<h2 class="sub-title">Interface utilisateur</h2>
+
+<div class="project-grid">
+
+    <div class="project-card">
+        <img src="m3-accueil.png" onclick="openModal(this.src)">
+        <p>Interface principale</p>
+    </div>
+
+    <div class="project-card">
+        <img src="m3-ajout.png" onclick="openModal(this.src)">
+        <p>Ajout médecin</p>
+    </div>
+
+    <div class="project-card">
+        <img src="m3-modif.png" onclick="openModal(this.src)">
+        <p>Modification</p>
+    </div>
+
+    <div class="project-card">
+        <img src="m3-succes.png" onclick="openModal(this.src)">
+        <p>Confirmation</p>
+    </div>
+
+    <div class="project-card">
+        <img src="m3-export.png" onclick="openModal(this.src)">
+        <p>Export XML</p>
+    </div>
+
+    <div class="project-card">
+        <img src="m3-rapport.png" onclick="openModal(this.src)">
+        <p>Rapport</p>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img id="modalImg">
+</div>
+
+<script>
+function openModal(src) {
+    document.getElementById("imgModal").style.display = "flex";
+    document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
