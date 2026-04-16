@@ -475,6 +475,127 @@ section{
     border-radius: 20px;
     padding: 20px;
 }
+.hero-badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:999px;
+    background:rgba(43,176,237,0.12);
+    border:1px solid rgba(43,176,237,0.35);
+    color:#9ddcff;
+    font-size:0.95rem;
+    margin-bottom:18px;
+}
+
+.hero-role{
+    font-size:1.2rem;
+    color:#d1d5db;
+    margin:14px 0 12px;
+    font-weight:500;
+}
+
+.hero-desc{
+    color:#aaa;
+    max-width:650px;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,0.08);
+}
+.projects-intro{
+    color:#b8b8b8;
+    max-width:850px;
+    margin-bottom:30px;
+    line-height:1.8;
+}
+
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:25px;
+    align-items:stretch;
+}
+
+.project-card{
+    background:linear-gradient(135deg,#0b0f14,#1b3a5c,#4c1d95);
+    border-radius:20px;
+    padding:24px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 20px rgba(43,176,237,0.15);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:380px;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(43,176,237,0.35),
+               0 0 45px rgba(139,92,246,0.25);
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:15px 0;
+}
+
+.tag{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(43,176,237,0.14);
+    border:1px solid rgba(43,176,237,0.25);
+    color:#cdeeff;
+    font-size:0.85rem;
+}
+
+.project-list{
+    padding-left:18px;
+    color:#d1d5db;
+    line-height:1.7;
+    margin:8px 0 18px;
+}
+
+.project-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:auto;
+}
+.learning-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:20px;
+}
+
+.learning-card{
+    min-height:200px;
+}
+
+.learning-card h3{
+    color:#7dd3fc;
+    margin-bottom:12px;
+}
+
+.learning-card p{
+    color:#cfcfcf;
+    line-height:1.8;
+}
 
 
 </style>
@@ -677,125 +798,226 @@ Mon Parcours et Expériences
 </section>
 <!-- PROJETS -->
 <section id="Projets" class="reveal">
-<h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
+    <h2 data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
 
-<div class="projects-container">
+    <p class="projects-intro"
+       data-fr="Voici une sélection de projets réalisés dans le cadre de ma formation BTS SIO SLAM, de mes stages et de mon apprentissage personnel."
+       data-en="Here is a selection of projects completed during my BTS SIO SLAM program, internships and personal learning.">
+       Voici une sélection de projets réalisés dans le cadre de ma formation BTS SIO SLAM, de mes stages et de mon apprentissage personnel.
+    </p>
 
-    <!-- RepairHub -->
-    <div class="card">
-        <h3 data-fr="RepairHub Stage 2ème Année" data-en="RepairHub Internship Year 2">
-            RepairHub Stage 2ème Année
-        </h3>
+    <div class="projects-container">
 
-        <p 
-        data-fr="Gestion SAV en PHP/MySQL" 
-        data-en="After-sales service management system built with PHP/MySQL">
-        Gestion SAV en PHP/MySQL
-        </p>
+        <!-- RepairHub -->
+        <div class="card project-card">
+            <h3 data-fr="RepairHub – Stage 2ème année" data-en="RepairHub – Second Year Internship">
+                RepairHub – Stage 2ème année
+            </h3>
 
-        <a href="repairhub.html" class="btn"
-        data-fr="Voir le projet"
-        data-en="View project">
-        Voir le projet
-        </a>
+            <p
+            data-fr="Développement d’une application de gestion SAV en PHP/MySQL pour le suivi des réparations et des clients."
+            data-en="Development of an after-sales management application in PHP/MySQL for tracking repairs and customers.">
+            Développement d’une application de gestion SAV en PHP/MySQL pour le suivi des réparations et des clients.
+            </p>
 
-        <a href="http://repairhub.oggninc.com:91/" class="btn"
-        data-fr="Admin"
-        data-en="Admin panel">
-        Admin
-        </a>
-    </div>
+            <div class="tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
 
-    <!-- Mission 2 -->
-    <div class="card">
-        <h3 data-fr="Mission 2 - Application Laravel" data-en="Mission 2 - Laravel Application">
-            Mission 2 - Application Laravel
-        </h3>
+            <ul class="project-list">
+                <li>Gestion des clients et réparations</li>
+                <li>Conception d’interface d’administration</li>
+                <li>Participation au cahier des charges</li>
+            </ul>
 
-        <p
-        data-fr="Application web de gestion des visiteurs développée avec Laravel, incluant base de données MySQL et interface dynamique."
-        data-en="Web application for visitor management developed with Laravel, including MySQL database and dynamic interface.">
-        Application web de gestion des visiteurs développée avec Laravel.
-        </p>
+            <div class="project-buttons">
+                <a href="repairhub.html" class="btn"
+                   data-fr="Voir le projet"
+                   data-en="View project">Voir le projet</a>
 
-        <div class="tags">
-            <span class="tag">Laravel</span>
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">MVC</span>
+                <a href="http://repairhub.oggninc.com:91/" class="btn btn-outline"
+                   data-fr="Admin"
+                   data-en="Admin panel">Admin</a>
+            </div>
         </div>
 
-        <a href="mission2.html" class="btn"
-        data-fr="Voir le projet"
-        data-en="View project">
-        Voir le projet
-        </a>
+        <!-- Mission 2 -->
+        <div class="card project-card">
+            <h3 data-fr="Mission 2 - Application Laravel" data-en="Mission 2 - Laravel Application">
+                Mission 2 - Application Laravel
+            </h3>
+
+            <p
+            data-fr="Application web de gestion des visiteurs développée avec Laravel, intégrant une base de données MySQL et une architecture MVC."
+            data-en="Web application for visitor management developed with Laravel, including a MySQL database and MVC architecture.">
+            Application web de gestion des visiteurs développée avec Laravel, intégrant une base de données MySQL et une architecture MVC.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Laravel</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">MVC</span>
+            </div>
+
+            <ul class="project-list">
+                <li>Gestion des visiteurs et fiches de frais</li>
+                <li>Traitement des formulaires</li>
+                <li>Connexion base de données</li>
+            </ul>
+
+            <div class="project-buttons">
+                <a href="mission2.html" class="btn"
+                   data-fr="Voir le projet"
+                   data-en="View project">Voir le projet</a>
+            </div>
+        </div>
+
+        <!-- Mission 3 -->
+        <div class="card project-card">
+            <h3 data-fr="Mission 3 - Application Desktop" data-en="Mission 3 - Desktop Application">
+                Mission 3 - Application Desktop
+            </h3>
+
+            <p
+            data-fr="Application de gestion des médecins développée en C# WinForms avec Entity Framework et export XML."
+            data-en="Doctor management application developed in C# WinForms with Entity Framework and XML export.">
+            Application de gestion des médecins développée en C# WinForms avec Entity Framework et export XML.
+            </p>
+
+            <div class="tags">
+                <span class="tag">C#</span>
+                <span class="tag">WinForms</span>
+                <span class="tag">Entity Framework</span>
+                <span class="tag">XML</span>
+            </div>
+
+            <ul class="project-list">
+                <li>Interface graphique desktop</li>
+                <li>Affichage et gestion de données</li>
+                <li>Export XML automatisé</li>
+            </ul>
+
+            <div class="project-buttons">
+                <a href="mission3.html" class="btn"
+                   data-fr="Voir le projet"
+                   data-en="View project">Voir le projet</a>
+            </div>
+        </div>
+
+        <!-- Chatbot -->
+        <div class="card project-card">
+            <h3 data-fr="Chatbot IT – INFOMAC" data-en="IT Chatbot – INFOMAC">
+                Chatbot IT – INFOMAC
+            </h3>
+
+            <p
+            data-fr="Développement d’un chatbot permettant d’aider les utilisateurs à diagnostiquer des pannes informatiques."
+            data-en="Development of a chatbot helping users diagnose IT issues.">
+            Développement d’un chatbot permettant d’aider les utilisateurs à diagnostiquer des pannes informatiques.
+            </p>
+
+            <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">Chatbot</span>
+            </div>
+
+            <ul class="project-list">
+                <li>Parcours utilisateur guidé</li>
+                <li>Messages interactifs</li>
+                <li>Orientation vers support et diagnostic</li>
+            </ul>
+
+            <div class="project-buttons">
+                <a href="chatbot.html" class="btn"
+                   data-fr="Voir le projet"
+                   data-en="View project">Voir le projet</a>
+            </div>
+        </div>
+
+        <!-- Pokedex -->
+        <div class="card project-card">
+            <h3 data-fr="Pokedex" data-en="Pokedex">
+                Pokedex
+            </h3>
+
+            <p
+            data-fr="Application web PHP/MySQL permettant l’affichage et la génération de Pokémon."
+            data-en="PHP/MySQL web application for displaying and generating Pokémon.">
+            Application web PHP/MySQL permettant l’affichage et la génération de Pokémon.
+            </p>
+
+            <div class="tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Web</span>
+                <span class="tag">Projet perso</span>
+            </div>
+
+            <ul class="project-list">
+                <li>Affichage dynamique</li>
+                <li>Connexion à une base de données</li>
+                <li>Logique de génération</li>
+            </ul>
+
+            <div class="project-buttons">
+                <a href="pokedex.html" class="btn"
+                   data-fr="Voir le projet"
+                   data-en="View project">Voir le projet</a>
+
+                <a href="https://github.com/KingKieran05/pokedex-laragon" class="btn btn-outline"
+                   data-fr="Code"
+                   data-en="Code">Code</a>
+            </div>
+        </div>
+
     </div>
+</section>
+<section id="Apprentissages" class="reveal">
+    <h2 data-fr="Ce que j’ai appris" data-en="What I learned">Ce que j’ai appris</h2>
 
-    <!-- Mission 3 -->
-    <div class="card">
-        <h3 data-fr="Mission 3 - Application Desktop" data-en="Mission 3 - Desktop Application">
-            Mission 3 - Application Desktop
-        </h3>
+    <div class="learning-grid">
+        <div class="card learning-card">
+            <h3 data-fr="Développement Web" data-en="Web Development">Développement Web</h3>
+            <p
+            data-fr="Création d’interfaces modernes, responsive design, structuration HTML/CSS et interactions en JavaScript."
+            data-en="Creation of modern interfaces, responsive design, HTML/CSS structuring and JavaScript interactions.">
+            Création d’interfaces modernes, responsive design, structuration HTML/CSS et interactions en JavaScript.
+            </p>
+        </div>
 
-        <p 
-        data-fr="Application de gestion des médecins développée en C# WinForms avec Entity Framework et export XML."
-        data-en="Doctor management application developed in C# WinForms with Entity Framework and XML export.">
-        Application de gestion des médecins en C# WinForms avec export XML.
-        </p>
+        <div class="card learning-card">
+            <h3 data-fr="Laravel & PHP" data-en="Laravel & PHP">Laravel & PHP</h3>
+            <p
+            data-fr="Architecture MVC, traitement des formulaires, validation de données et connexion à MySQL."
+            data-en="MVC architecture, form processing, data validation and MySQL connection.">
+            Architecture MVC, traitement des formulaires, validation de données et connexion à MySQL.
+            </p>
+        </div>
 
-        <a href="mission3.html" class="btn"
-        data-fr="Voir le projet"
-        data-en="View project">
-        Voir le projet
-        </a>
+        <div class="card learning-card">
+            <h3 data-fr="C# WinForms" data-en="C# WinForms">C# WinForms</h3>
+            <p
+            data-fr="Développement d’applications desktop avec interface graphique, gestion de données et export XML."
+            data-en="Desktop application development with graphical interface, data management and XML export.">
+            Développement d’applications desktop avec interface graphique, gestion de données et export XML.
+            </p>
+        </div>
+
+        <div class="card learning-card">
+            <h3 data-fr="Base de données" data-en="Databases">Base de données</h3>
+            <p
+            data-fr="Manipulation de MySQL, requêtes SQL et organisation des données dans des applications concrètes."
+            data-en="Use of MySQL, SQL queries and data organization in real applications.">
+            Manipulation de MySQL, requêtes SQL et organisation des données dans des applications concrètes.
+            </p>
+        </div>
     </div>
-
-    <!-- Chatbot -->
-    <div class="card">
-        <h3 data-fr="Chatbot IT – INFOMAC" data-en="IT Chatbot – INFOMAC">
-            Chatbot IT – INFOMAC
-        </h3>
-
-        <p 
-        data-fr="Développement d’un chatbot permettant de diagnostiquer des pannes informatiques."
-        data-en="Development of a chatbot capable of diagnosing IT issues.">
-        Développement d’un chatbot permettant de diagnostiquer des pannes informatiques.
-        </p>
-
-        <a href="chatbot.html" class="btn"
-        data-fr="Voir le projet"
-        data-en="View project">
-        Voir le projet
-        </a>
-    </div>
-
-    <!-- Pokedex -->
-    <div class="card">
-        <h3 data-fr="Pokedex" data-en="Pokedex">
-            Pokedex
-        </h3>
-
-        <p 
-        data-fr="Application web PHP/MySQL avec génération de Pokémon."
-        data-en="PHP/MySQL web application with Pokémon generation.">
-        Application web PHP/MySQL avec génération de Pokémon.
-        </p>
-
-        <a href="pokedex.html" class="btn"
-        data-fr="Voir le projet"
-        data-en="View project">
-        Voir le projet
-        </a>
-
-        <a href="https://github.com/KingKieran05/pokedex-laragon" class="btn"
-        data-fr="Code"
-        data-en="Code">
-        Code
-        </a>
-    </div>
-
-</div>
 </section>
 <!-- CERTIFICATIONS -->
 <section id="Certifications" class="reveal">
